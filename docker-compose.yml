@@ -1,15 +1,15 @@
-version: "3.8"
+version: '3.8'
 
 services:
   api:
     build: .
     ports:
-      - "3000:3000"
+      - '3000:3000'
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
     environment:
-      - DATABASE_URL=postgresql://postgres:example123@db:5432/bookshelf_db
+      - DATABASE_URL=postgresql://postgres:example123@db:5434/bookshelf_db
     depends_on:
       - db
 
@@ -17,11 +17,11 @@ services:
     image: postgres:16
     restart: always
     ports:
-      - "5432:5432"
+      - '5434:5432'
     environment:
-      POSTGRES_DB=bookshelf_db
-      POSTGRES_USER=postgres
-      POSTGRES_PASSWORD=example123
+      POSTGRES_DB: bookshelf_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: example123
     volumes:
       - pgdata:/var/lib/postgresql/data
 
